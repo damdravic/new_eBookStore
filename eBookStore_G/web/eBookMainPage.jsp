@@ -18,7 +18,7 @@
     </head>
     <body>
        <div class="content">
-        <h1> eBookSore </h1>
+        <h1> eBookStore </h1>
         <div id="header">
             <div class="identificator">
                     <c:choose>

@@ -16,12 +16,12 @@ import java.util.logging.Logger;
 public class DbConnection {
 
     private static String baseurl = "jdbc:derby://localhost:1527/";
-    private static String db ="eBookStore";
+    private static String db ="eBookStore_G";
     private static String username = "Dragos";
     private static String password = "3122";
     
             
-    private static String driver = "org.apache.derby.jdbc.EmbeddedDriver";
+    private static String driver = "org.apache.derby.jdbc.ClientDriver";
     private static Connection conn;
 
     public static Connection getConnection(){
