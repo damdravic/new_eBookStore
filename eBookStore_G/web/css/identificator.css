@@ -1,0 +1,95 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Feb 1, 2018, 1:43:32 PM
+    Author     : Dragos
+*/
+
+.identificator{
+    float:left;
+    margin-left: 4%;
+}
+
+
+#identif,#identif ul {
+    list-style: none outside none;
+    margin: 0px ;
+    padding: 0px ;
+    
+}
+
+
+#identif {
+    font-family: Verdana;
+    font-size: 12px;
+    height: 40px;
+    list-style: none outside none;
+    margin: 20px auto;
+    text-shadow: 0 -1px 3px #fff;
+    width: 100%;
+     float: right;
+     padding :10px;
+
+    /* border radius */
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+
+    /* box shadow */
+    -moz-box-shadow: 0px 3px 3px #cecece;
+    -webkit-box-shadow: 0px 3px 3px #cecece;
+    box-shadow: 0 3px 4px #8b8b8b;
+
+    /* gradient */
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #787878), color-stop(0.5, #5E5E5E), color-stop(0.51, #707070), color-stop(1, #838383));
+    background-image: -moz-linear-gradient(center bottom, #fff 0%, #5E5E5E 50%, #707070 51%, #fff 100%);
+    background-color: #5f5f5f;
+}
+#identif li {
+    border-bottom: 1px solid #575757;
+    border-left: 1px solid #929292;
+    border-right: 1px solid #5d5d5d;
+    border-top: 1px solid #797979;
+    display: block;
+    float: left;
+    height: 40px;
+    position: relative;
+    width: auto;
+   
+}
+#identif > li:first-child {
+    border-left: 0 none;
+    margin-left: 5px;
+}
+#identif ul {
+    left: -9999px;
+    position: absolute;
+    top: -9999px;
+    z-index: 2;
+}
+#identif ul li {
+    background: none repeat scroll 0 0 #838383;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+    width: 100%;
+     
+}
+#identif li a {
+    color: #FFFFFF;
+    display: block;
+     line-height: 40px;
+    outline: medium none;
+    text-align: center;
+    text-decoration: none;
+    padding: 0px 10px 0px 10px;;
+
+    /* gradient */
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #787878), color-stop(0.5, #5E5E5E), color-stop(0.51, #707070), color-stop(1, #838383));
+    background-image: -moz-linear-gradient(center bottom, #787878 0%, #5E5E5E 50%, #707070 51%, #838383 100%);
+    background-color: #5f5f5f;
+}
+
+
+
