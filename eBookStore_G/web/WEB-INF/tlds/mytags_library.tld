@@ -20,6 +20,15 @@
           <listener-class>com.mycompany.TagLibListener</listener-class> 
       </listener>
     -->
+  <tag>
+    <name>NewTagHandler</name>
+    <tag-class>NewTagHandler</tag-class>
+    <body-content>scriptless</body-content>
+  </tag>
+  <tag-file>
+    <name>ddv</name>
+    <path>/WEB-INF/tags/newtag_file.tag</path>
+  </tag-file>
   <tag-file>
     <name>ddv</name>
     <path>/WEB-INF/tags/newtag_file.tag</path>
