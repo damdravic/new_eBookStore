@@ -16,8 +16,18 @@
     
         <body>
         <ul id="nav">
+            <c:choose>
+            <c:when test="${actualUserRole == 'user'|| actualUserRole == 'admin'}">
+                <li><a href="./eBookMainPage.jsp">Home</a> </li>    
+            </c:when>
+            </c:choose>
         <c:choose>
             <c:when test="${actualUserRole == 'admin'}">
+                <c:choose>
+                                    <c:when test ="${pageContext.request.servletPath == '/manageBooks.jsp'}">
+                                <li><a href="./manageBooks.jsp">Add New Book</a></li>
+                                    </c:when>
+                                </c:choose>
                 <li><a href="#">Manage</a>
                     <ul>
                         <c:choose>
