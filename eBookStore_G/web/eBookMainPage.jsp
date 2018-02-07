@@ -9,7 +9,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+     <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
+     <%@ taglib uri="WEB-INF/tlds/myTags_Library.tld" prefix="ddv" %>
         <title>JSP Page</title>
         
         <link href="css/eBooksStore.css" rel="stylesheet">
@@ -39,9 +41,71 @@
             </c:otherwise>
             </c:choose>
             </div>
-            </div> 
+            </div>  
        
+         <ddv:connectionTagHandler
+                            connection = "snapshot" 
+                            driver = "org.apache.derby.jdbc.ClientDriver"
+                            url = "jdbc:derby://localhost:1527/eBookStore_G"
+                            username = "Dragos"  
+                            password = "3122"/> 
+        
+        
         <div class="contentt">
+            
+            <sql:query dataSource="${snapshot}" var="result">
+                            SELECT ISBN, TITLE, BOOK_TYPE_ID, PAGES, GENRE_ID, PRICE, STOCK, LAST_SUPPLY_DATE FROM EBOOKS.EBOOKS
+                        </sql:query>
+                        <table border="1" width="100%">
+                            <tr>
+                            <td width="4%" class="thc"> select </td>   
+                            <td width="12%" class="thc"> ISBN </td>  
+                            <td width="12%" class="thc">DENUMIRE</td>
+                            <td width="12%" class="thc">ID_TYPE</td>
+                            <td width="12%" class="thc">ID_QUALITY</td>
+                            <td width="12%" class="thc">PAGES</td>
+                            <td width="12%" class="thc">ID_GENRE</td>
+                            <td width="12%" class="thc">PRET</td>
+                            <td width="12%" class="thc">PRET</td>
+                        </table>    
+                        <table border="1" width="100%">    
+                            </tr>
+                            <c:forEach var="row" varStatus="loop" items="${result.rows}">
+                            <tr>
+                                <td width="4%" class="tdc"><input type="checkbox" name="admin_users_checkbox" value="${row.ISBN}"></td>
+                                <td width="12%" class="tdc"><c:out value="${row.ISBN}"/></td>
+                                <td width="12%" class="tdc"><c:out value="${row.TITLE}"/></td>
+                                <td width="12%" class="tdc"><c:out value="${row.BOOK_TYPE_ID}"/></td>
+                                <td width="12%" class="tdc"><c:out value="${row.PAGES}"/></td>
+                                <td width="12%" class="tdc"><c:out value="${row.GENRE_ID}"/></td>
+                                <td width="12%" class="tdc"><c:out value="${row.PRICE}"/></td>
+                                <td width="12%" class="tdc"><c:out value="${row.STOCK}"/></td>
+                                <td width="12%" class="tdc"><c:out value="${row.LAST_SUPPLY_DATE}"/></td>
+                            </tr>
+                            </c:forEach>
+</table>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
            <table class="ebooktable">
               <tr>
                 <th>Id</th>
