@@ -24,7 +24,7 @@ import javax.servlet.jsp.tagext.SimpleTagSupport;
  * @author Dragos
  */
 public class connectionTagHandler extends SimpleTagSupport implements javax.sql.DataSource{
-    private String url;
+   private String url;
     private String driver;
     private String username;
     private String password;
@@ -71,14 +71,6 @@ public class connectionTagHandler extends SimpleTagSupport implements javax.sql.
         }
     }
 
-     /**
-     *
-     * @param connection
-     */
-    public void setConnection(String connection) {
-        this.connection = connection;
-    }   
-
     /**
      *
      * @param url
@@ -111,7 +103,13 @@ public class connectionTagHandler extends SimpleTagSupport implements javax.sql.
         this.password = password;
     }
 
-   
+    /**
+     *
+     * @param connection
+     */
+    public void setConnection(String connection) {
+        this.connection = connection;
+    }   
 
     /**
      *
@@ -164,5 +162,5 @@ public class connectionTagHandler extends SimpleTagSupport implements javax.sql.
     @Override
     public boolean isWrapperFor(Class<?> iface) throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+}
 }
