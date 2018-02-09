@@ -16,6 +16,10 @@
         <servlet-name>UserManage</servlet-name>
         <servlet-class>servlets.UserManage</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Buy</servlet-name>
+        <servlet-class>servlets.Buy</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Authentication</servlet-name>
         <url-pattern>/Authentication</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>UserManage</servlet-name>
         <url-pattern>/UserManage</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Buy</servlet-name>
+        <url-pattern>/Buy</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

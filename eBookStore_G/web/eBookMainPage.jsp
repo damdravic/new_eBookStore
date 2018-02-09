@@ -41,7 +41,16 @@
             
             
             </div>  
-      <form action="${pageContext.request.contextPath}/add_editBook.jsp" method="POST">  
+            
+          <c:choose>
+                <c:when test="${actualUserRole == 'admin'}">
+                   <form action="${pageContext.request.contextPath}/add_editBook.jsp" method="POST">  
+                </c:when>
+                <c:when test="${actualUserRole == 'user'}">
+                   <form action="${pageContext.request.contextPath}/Buy" method="POST">  
+                </c:when>
+            </c:choose>
+         
          <sql:setDataSource
                             var = "snapshot" 
                             driver = "org.apache.derby.jdbc.ClientDriver"
@@ -53,7 +62,8 @@
         <div class="contentt">
             
             <sql:query dataSource="${snapshot}" var="result">
-                            SELECT ISBN, TITLE, AUTHOR, BOOK_TYPE_ID, PAGES, GENRE_ID, PRICE, STOCK, LAST_SUPPLY_DATE FROM DRAGOS.EBOOKS
+                            SELECT EBOOKS.ISBN, EBOOKS.TITLE, EBOOKS.AUTHOR, EBOOKS.BOOK_TYPE_ID, EBOOKS.PAGES, EBOOKS.GENRE_ID, EBOOKS.PRICE, EBOOKS.STOCK, EBOOKS.LAST_SUPPLY_DATE, BOOK_TYPES.BOOK_TYPE, BOOK_GENRES.GENRE 
+                            FROM DRAGOS.EBOOKS, DRAGOS.BOOK_TYPES,DRAGOS.BOOK_GENRES where EBOOKS.BOOK_TYPE_ID = BOOK_TYPES.TYPE_ID AND EBOOKS.GENRE_ID =  BOOK_GENRES.GENRE_ID
                         </sql:query>
                         <table class="ebooktable">
                             
@@ -62,17 +72,17 @@
                             <th width="12%" class="thc"> ISBN </th>  
                             <th width="10%" class="thc"> AUTHOR </th> 
                             <th width="10%" class="thc">BOOK TYPE_ID</th>
-                            <th width="10%" class="thc">PAGES</th>
+                            <th width="6%" class="thc">PAGES</th>
                             <th width="10%" class="thc">GENRE_ID</th>
-                            <th width="10%" class="thc">PRICE</th>
+                            <th width="6%" class="thc">PRICE</th>
                                 <!-- options for admin only -->
                                     <c:choose>
                                         <c:when test="${actualUserRole == 'admin'}">
-                                           <th width="10%" class="thc">STOCK</th>
+                                           <th width="6%" class="thc">STOCK</th>
                                            <th width="10%" class="thc">LAST SUPPLY</th>
-                                           <th width="8%" class="thc"> select </th>
                                         </c:when>
                                     </c:choose>
+                              <th width="8%" class="thc"> select </th>              
                              </tr>
                         </table>  
                             
@@ -82,18 +92,18 @@
                                 <td width="12%" class="tdc"><c:out value="${row.TITLE}"/></td>
                                 <td width="12%" class="tdc"><c:out value="${row.ISBN}"/></td>  
                                  <td width="10%" class="tdc"><c:out value="${row.AUTHOR}"/></td>
-                                <td width="10%" class="tdc"><c:out value="${row.BOOK_TYPE_ID}"/></td>
-                                <td width="10%" class="tdc"><c:out value="${row.PAGES}"/></td>
-                                <td width="10%" class="tdc"><c:out value="${row.GENRE_ID}"/></td>
-                                <td width="10%" class="tdc"><c:out value="${row.PRICE}"/></td>
+                                <td width="10%" class="tdc"><c:out value="${row.BOOK_TYPE}"/></td>
+                                <td width="6%" class="tdc"><c:out value="${row.PAGES}"/></td>
+                                <td width="10%" class="tdc"><c:out value="${row.GENRE}"/></td>
+                                <td width="6%" class="tdc"><c:out value="${row.PRICE}"/></td>
                                       <!-- options for admin only -->
                                  <c:choose>
                                     <c:when test="${actualUserRole == 'admin'}">
-                                        <td width="10%" class="tdc"><c:out value="${row.STOCK}"/></td>
+                                        <td width="6%" class="tdc"><c:out value="${row.STOCK}"/></td>
                                         <td width="10%" class="tdc"><c:out value="${row.LAST_SUPPLY_DATE}"/></td>
-                                        <td width="8%" class="tdc"><input type="checkbox" name="admin_users_checkbox" value="${row.ISBN}"></td>
                                     </c:when>
                                 </c:choose>
+                                <td width="8%" class="tdc"><input type="checkbox" name="admin_users_checkbox" value="${row.ISBN}"></td>
                             </tr>
                             </c:forEach>
                         </table>

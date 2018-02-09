@@ -24,8 +24,9 @@
                 <input type="submit" value="Cancel" name="cancel"/>
             </c:when>
             <c:when test="${actualUserRole == 'user'}">
-                <li><a href="#">Buy sel. Book</a> </li>    
-                 <li><a href="#">Shopping cart</a></li>
+                 <input type="submit" value="Buy sel. Book" name="buy" />            
+                <input type="submit" value="Shopping cart"  name="shopping_cart"/>
+               
             </c:when>
             <c:when test ="${actualUserRole == 'admin' && pageContext.request.servletPath == '/add_editBook.jsp'}">
                   <input type="submit" value="Submit" name="submit_changes" />  
