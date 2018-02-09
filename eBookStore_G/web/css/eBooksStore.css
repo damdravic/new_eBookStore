@@ -214,6 +214,13 @@ input[type=text] {
     margin-left:  20px;
     box-sizing: border-box;
 }
+select { 
+    margin-left:  20px;
+    box-sizing: border-box;
+       width: 150px !important;
+}
+
+
 
 input[type=datetime] {
     width: 120px;

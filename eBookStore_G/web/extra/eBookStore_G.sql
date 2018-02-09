@@ -1,6 +1,7 @@
 Create table EBOOKS(
  ISBN varchar(50) primary key,
  TITLE varchar(50),
+ AUTHOR varchar(50),
  BOOK_TYPE_ID  integer NOT NULL,
  PAGES integer,
  GENRE_ID integer NOT NULL,
