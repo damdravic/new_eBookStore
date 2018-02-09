@@ -35,6 +35,7 @@ public class eBookManageServlet extends HttpServlet {
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
+     * @throws java.sql.SQLException
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
@@ -74,7 +75,7 @@ public class eBookManageServlet extends HttpServlet {
                 catch (ClassNotFoundException | SQLException ex)
                 {
                     // display a message for NOT OK
-                    Logger.getLogger(eBooksStoreAdminUsersServlet.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(eBookManageServlet.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 finally
                 {
@@ -84,7 +85,7 @@ public class eBookManageServlet extends HttpServlet {
                         {
                             resultSet.close();
                         }
-                        catch (SQLException ex){Logger.getLogger(eBooksStoreAdminUsersServlet.class.getName()).log(Level.SEVERE, null, ex);}
+                        catch (SQLException ex){Logger.getLogger(eBookManageServlet.class.getName()).log(Level.SEVERE, null, ex);}
                     }
                     if (statement != null)
                     {
@@ -92,7 +93,7 @@ public class eBookManageServlet extends HttpServlet {
                         {
                             statement.close();
                         }
-                        catch (SQLException ex){Logger.getLogger(eBooksStoreAdminUsersServlet.class.getName()).log(Level.SEVERE, null, ex);}
+                        catch (SQLException ex){Logger.getLogger(eBookManageServlet.class.getName()).log(Level.SEVERE, null, ex);}
                     }
                     if (pstmnt != null)
                     {
@@ -100,7 +101,7 @@ public class eBookManageServlet extends HttpServlet {
                         {
                             pstmnt.close();
                         }
-                        catch (SQLException ex){Logger.getLogger(eBooksStoreAdminUsersServlet.class.getName()).log(Level.SEVERE, null, ex);}
+                        catch (SQLException ex){Logger.getLogger(eBookManageServlet.class.getName()).log(Level.SEVERE, null, ex);}
                     }
                     if (connection != null)
                     {
@@ -108,7 +109,7 @@ public class eBookManageServlet extends HttpServlet {
                         {
                             connection.close();
                         }
-                        catch (SQLException ex){Logger.getLogger(eBooksStoreAdminUsersServlet.class.getName()).log(Level.SEVERE, null, ex);}
+                        catch (SQLException ex){Logger.getLogger(eBookManageServlet.class.getName()).log(Level.SEVERE, null, ex);}
                     }
                     // redirect page to its JSP as view
                     request.getRequestDispatcher("./eBooksStoreAdminUsersPage.jsp").forward(request, response);
@@ -177,7 +178,7 @@ public class eBookManageServlet extends HttpServlet {
                 catch (ClassNotFoundException | SQLException ex)
                 {
                     // display a message for NOT OK
-                    Logger.getLogger(eBooksStoreAdminUsersServlet.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(eBookManageServlet.class.getName()).log(Level.SEVERE, null, ex);
 
                 }
                 finally
@@ -188,7 +189,7 @@ public class eBookManageServlet extends HttpServlet {
                         {
                             resultSet.close();
                         }
-                        catch (SQLException ex){Logger.getLogger(eBooksStoreAdminUsersServlet.class.getName()).log(Level.SEVERE, null, ex);}
+                        catch (SQLException ex){Logger.getLogger(eBookManageServlet.class.getName()).log(Level.SEVERE, null, ex);}
                     }
                     if (pstmnt != null)
                     {
@@ -196,7 +197,7 @@ public class eBookManageServlet extends HttpServlet {
                         {
                             pstmnt.close();
                         }
-                        catch (SQLException ex){Logger.getLogger(eBooksStoreAdminUsersServlet.class.getName()).log(Level.SEVERE, null, ex);}
+                        catch (SQLException ex){Logger.getLogger(eBookManageServlet.class.getName()).log(Level.SEVERE, null, ex);}
                     }	
                     if (connection != null)
                     {
@@ -204,7 +205,7 @@ public class eBookManageServlet extends HttpServlet {
                         {
                             connection.close();
                         }
-                        catch (SQLException ex){Logger.getLogger(eBooksStoreAdminUsersServlet.class.getName()).log(Level.SEVERE, null, ex);}
+                        catch (SQLException ex){Logger.getLogger(eBookManageServlet.class.getName()).log(Level.SEVERE, null, ex);}
                     }
                     // redirect page to its JSP as view
                     request.getRequestDispatcher("./eBooksStoreAdminUsersPage.jsp").forward(request, response);
@@ -237,12 +238,12 @@ public class eBookManageServlet extends HttpServlet {
                 }
                 catch (ClassNotFoundException | SQLException ex)
                 {
-                    Logger.getLogger(eBooksStoreAdminUsersServlet.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(eBookManageServlet.class.getName()).log(Level.SEVERE, null, ex);
                     if (connection != null){
                         try {
                             connection.rollback();
                         } catch (SQLException ex1) {
-                            Logger.getLogger(eBooksStoreAdminUsersServlet.class.getName()).log(Level.SEVERE, null, ex1);
+                            Logger.getLogger(eBookManageServlet.class.getName()).log(Level.SEVERE, null, ex1);
                         }
                     }
                 }              
@@ -255,7 +256,7 @@ public class eBookManageServlet extends HttpServlet {
                             resultSet.close();
                         }
                         catch (SQLException ex){
-                            Logger.getLogger(eBooksStoreAdminUsersServlet.class.getName()).log(Level.SEVERE, null, ex);
+                            Logger.getLogger(eBookManageServlet.class.getName()).log(Level.SEVERE, null, ex);
                         }
                     }
                     if (pstmnt != null)
@@ -265,7 +266,7 @@ public class eBookManageServlet extends HttpServlet {
                             pstmnt.close();
                         }
                         catch (SQLException ex){
-                            Logger.getLogger(eBooksStoreAdminUsersServlet.class.getName()).log(Level.SEVERE, null, ex);
+                            Logger.getLogger(eBookManageServlet.class.getName()).log(Level.SEVERE, null, ex);
                         }
                     }
                     if (pstmnt != null)
@@ -275,7 +276,7 @@ public class eBookManageServlet extends HttpServlet {
                             pstmnt.close();
                         }
                         catch (SQLException ex){
-                            Logger.getLogger(eBooksStoreAdminUsersServlet.class.getName()).log(Level.SEVERE, null, ex);
+                            Logger.getLogger(eBookManageServlet.class.getName()).log(Level.SEVERE, null, ex);
                         }
                     }
                     if (connection != null){
@@ -284,13 +285,13 @@ public class eBookManageServlet extends HttpServlet {
                             connection.setAutoCommit(true);
                         }
                         catch (SQLException ex){                          
-                            Logger.getLogger(eBooksStoreAdminUsersServlet.class.getName()).log(Level.SEVERE, null, ex);
+                            Logger.getLogger(eBookManageServlet.class.getName()).log(Level.SEVERE, null, ex);
                         }
                         finally{
                             try {
                                 connection.close();
                             } catch (SQLException ex) {
-                                Logger.getLogger(eBooksStoreAdminUsersServlet.class.getName()).log(Level.SEVERE, null, ex);
+                                Logger.getLogger(eBookManageServlet.class.getName()).log(Level.SEVERE, null, ex);
                             }
                         }
                     }
@@ -321,7 +322,11 @@ public class eBookManageServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(eBookManageServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -335,7 +340,11 @@ public class eBookManageServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(eBookManageServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

@@ -50,6 +50,10 @@ Create table USERS(
  ROLE  varchar(20)
 );
 
+create table ROLES(
+ROLE varchar(10) primary key
+);
+
 Create table ORDERS(
 ID_ORDER INTEGER primary key GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
 CNP varchar(13) NOT NULL,

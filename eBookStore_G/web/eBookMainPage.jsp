@@ -52,7 +52,7 @@
         
         <div class="contentt">
             
-            <sql:query dataSource="${snapshot}" var="result">
+            <sql:query dataSource="${sn>apshot}" var="result">
                             SELECT ISBN, TITLE, BOOK_TYPE_ID, PAGES, GENRE_ID, PRICE, STOCK, LAST_SUPPLY_DATE FROM DRAGOS.EBOOKS
                         </sql:query>
                         <table class="ebooktable">

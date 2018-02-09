@@ -32,7 +32,7 @@
                     <ul>
                         <c:choose>
                             <c:when test="${actualUserRole == 'admin'}">
-                                <li><a href="./eBooksStoreAdminUsersPage.jsp">Users</a></li>
+                                <li><a href="./eBookUsers.jsp">Users</a></li>
                                 <li><a href="./eBooksStoreAdminUserRolesPage.jsp">User roles</a></li>
                                 <li><a href="./manageBooks.jsp">eBooks</a></li>
                             </c:when>
