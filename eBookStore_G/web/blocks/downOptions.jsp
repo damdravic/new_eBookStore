@@ -20,7 +20,7 @@
                 
                 <input type="submit" value="Add new Book" name="add_new" />            
                 <input type="submit" value="Delete sel. item"  name="delete_book"/>
-                <input type="submit" value="Edit" name="edit_book"/>
+                <input type="submit" value="Edit sel. item" name="edit_book"/>
                 <input type="submit" value="Cancel" name="cancel"/>
             </c:when>
             <c:when test="${actualUserRole == 'user'}">
@@ -34,6 +34,13 @@
                   <input type="submit" value="Cancel/ Back" name="cancel" />
                   
              </c:when>
+                      <c:when test="${actualUserRole == 'admin' && pageContext.request.servletPath == '/eBookUsers.jsp'}">
+                
+                <input type="submit" value="Add new User" name="add_new" />            
+                <input type="submit" value="Delete sel. item"  name="delete_book"/>
+                <input type="submit" value="Edit sel. item" name="edit_book"/>
+                <input type="submit" value="Cancel" name="cancel"/>
+            </c:when>
           </c:choose>
         </ul>
        <script src="./js/script.js"></script>

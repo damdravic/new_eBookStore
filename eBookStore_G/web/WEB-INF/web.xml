@@ -5,10 +5,6 @@
         <servlet-class>servlets.Authentication</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>eBookManageServlet</servlet-name>
-        <servlet-class>servlets.eBookManageServlet</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>eBookAddNewServlet</servlet-name>
         <servlet-class>servlets.eBookAddNewServlet</servlet-class>
     </servlet>
@@ -16,13 +12,13 @@
         <servlet-name>eBookEditServlet</servlet-name>
         <servlet-class>servlets.eBookEditServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UserManage</servlet-name>
+        <servlet-class>servlets.UserManage</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Authentication</servlet-name>
         <url-pattern>/Authentication</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>eBookManageServlet</servlet-name>
-        <url-pattern>/eBookManageServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>eBookAddNewServlet</servlet-name>
@@ -31,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>eBookEditServlet</servlet-name>
         <url-pattern>/eBookEditServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserManage</servlet-name>
+        <url-pattern>/UserManage</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
